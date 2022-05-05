@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { loggerMiddleware } from './middlewares/loggerMiddleware';
 import counterSlice from './slices/counterSlice';
-import logger from 'redux-logger';
 
 export const store = configureStore({
   reducer: {
     counter: counterSlice,
   },
-  middleware: [logger],
+  middleware: [loggerMiddleware],
 });
 
 export type RootState = ReturnType<typeof store.getState>;
